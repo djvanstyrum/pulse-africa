@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pulse Africa</title>
+  <meta name="description" content="Pulse Africa is a non-profit foundation helping African dance schools turn their online following into lasting support.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFF8EE;
+      --bg-alt: #F7EBDA;
+      --ink: #1B1410;
+      --muted: #6B5B4E;
+      --orange: #E8572A;
+      --gold: #F2B33D;
+      --green: #1F7A5A;
+      --plum: #6E2A4F;
+      --card: #FFFFFF;
+      --line: #E9D9C4;
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: "Bricolage Grotesque", Inter, sans-serif; line-height: 1.1; margin: 0 0 .5em; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.01em; }
+    h3 { font-size: 1.3rem; font-weight: 600; }
+    p { margin: 0 0 1em; }
+    a { color: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .eyebrow { display: inline-block; font-weight: 600; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+
+    /* Header */
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,248,238,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav img { height: 40px; display: block; }
+    .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-weight: 500; font-size: .95rem; }
+    .nav ul a { text-decoration: none; }
+    .nav ul a:hover { color: var(--orange); }
+    .btn { display: inline-block; padding: 14px 26px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: transform .15s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--orange); color: #fff; }
+    .btn-ghost { border: 2px solid var(--ink); }
+    .nav .btn { padding: 10px 20px; font-size: .95rem; }
+
+    /* Hero */
+    .hero { padding: 72px 0 96px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+    .hero h1 span { color: var(--orange); }
+    .hero p.lead { font-size: 1.2rem; color: var(--muted); max-width: 32em; }
+    .hero .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .hero-art svg { width: 100%; height: auto; display: block; }
+    .bar { transform-origin: bottom; transform-box: fill-box; animation: beat 1.6s ease-in-out infinite; }
+    @keyframes beat { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(.55); } }
+    @media (prefers-reduced-motion: reduce) { .bar { animation: none; } html { scroll-behavior: auto; } }
+
+    /* Pattern band */
+    .band { height: 28px; background:
+      repeating-linear-gradient(90deg, var(--orange) 0 28px, var(--gold) 28px 56px, var(--green) 56px 84px, var(--plum) 84px 112px); }
+
+    section { padding: 96px 0; }
+    .alt { background: var(--bg-alt); }
+    .section-head { max-width: 640px; margin-bottom: 48px; }
+    .section-head p { color: var(--muted); font-size: 1.1rem; }
+
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; }
+    .card p { color: var(--muted); margin: 0; }
+    .icon { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; margin-bottom: 20px; }
+    .icon svg { width: 30px; height: 30px; }
+
+    /* Problem / story */
+    .story { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .story ul { list-style: none; padding: 0; margin: 0; }
+    .story li { padding: 18px 0 18px 40px; border-bottom: 1px solid var(--line); position: relative; }
+    .story li::before { content: ""; position: absolute; left: 0; top: 24px; width: 20px; height: 20px; border-radius: 50%; background: var(--orange); }
+    .story li:nth-child(2)::before { background: var(--gold); }
+    .story li:nth-child(3)::before { background: var(--green); }
+    .story li:nth-child(4)::before { background: var(--plum); }
+    .story li strong { display: block; }
+    .story li span { color: var(--muted); }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; counter-reset: step; }
+    .step { position: relative; padding: 32px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); }
+    .step::before { counter-increment: step; content: counter(step); font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 3rem; line-height: 1; color: var(--orange); display: block; margin-bottom: 12px; }
+    .step p { color: var(--muted); margin: 0; }
+    .step.now { border: 2px solid var(--orange); }
+    .tag { position: absolute; top: 24px; right: 24px; font-size: .8rem; font-weight: 600; background: var(--orange); color: #fff; padding: 4px 12px; border-radius: 999px; }
+
+    /* Safety */
+    .safety { background: var(--ink); color: var(--bg); border-radius: 28px; padding: 56px; display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; }
+    .safety p { color: #D9CBBB; margin: 0; }
+    .safety svg { width: 96px; height: 96px; }
+
+    /* Involve */
+    .involve .card h3 { margin-top: 0; }
+    .involve .card a { display: inline-block; margin-top: 16px; font-weight: 600; color: var(--orange); text-decoration: none; }
+
+    footer { padding: 48px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    footer img { height: 32px; }
+
+    @media (max-width: 860px) {
+      .nav ul { display: none; }
+      .hero { padding: 40px 0 64px; }
+      .hero-grid, .story { grid-template-columns: 1fr; gap: 32px; }
+      .cards, .steps { grid-template-columns: 1fr; }
+      section { padding: 64px 0; }
+      .safety { grid-template-columns: 1fr; padding: 32px; }
+    }
+    @media (max-width: 420px) {
+      .wrap { padding: 0 16px; }
+      .nav .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" aria-label="Pulse Africa home"><img src="logo.svg" alt="Pulse Africa"></a>
+    <ul>
+      <li><a href="#why">Why</a></li>
+      <li><a href="#what">What we do</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#involved">Get involved</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#involved">Support us</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Non-profit foundation</span>
+        <h1>Every move <span>has a pulse.</span></h1>
+        <p class="lead">Pulse Africa helps dance schools across Africa turn their big online following into lasting support — more visibility, less admin, and more income for the young dancers they train.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#involved">Get involved</a>
+          <a class="btn btn-ghost" href="#what">What we do</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <!-- Hero graphic: a rising sun, rhythm bars and a heartbeat line -->
+        <svg viewBox="0 0 520 440">
+          <defs>
+            <linearGradient id="heroSun" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#F2B33D"/>
+              <stop offset="1" stop-color="#E8572A"/>
+            </linearGradient>
+            <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+              <circle cx="3" cy="3" r="2.2" fill="#E9D9C4"/>
+            </pattern>
+          </defs>
+          <rect x="300" y="10" width="200" height="150" rx="20" fill="url(#dots)"/>
+          <circle cx="260" cy="210" r="170" fill="url(#heroSun)"/>
+          <circle cx="260" cy="210" r="205" fill="none" stroke="#E8572A" stroke-opacity=".25" stroke-width="2" stroke-dasharray="4 10"/>
+          <!-- rhythm bars -->
+          <g>
+            <rect class="bar" style="animation-delay:0s"    x="110" y="250" width="26" height="150" rx="13" fill="#1F7A5A"/>
+            <rect class="bar" style="animation-delay:.2s"   x="150" y="200" width="26" height="200" rx="13" fill="#6E2A4F"/>
+            <rect class="bar" style="animation-delay:.4s"   x="190" y="270" width="26" height="130" rx="13" fill="#1B1410"/>
+            <rect class="bar" style="animation-delay:.1s"   x="230" y="160" width="26" height="240" rx="13" fill="#FFF8EE"/>
+            <rect class="bar" style="animation-delay:.5s"   x="270" y="230" width="26" height="170" rx="13" fill="#1F7A5A"/>
+            <rect class="bar" style="animation-delay:.3s"   x="310" y="190" width="26" height="210" rx="13" fill="#6E2A4F"/>
+            <rect class="bar" style="animation-delay:.6s"   x="350" y="260" width="26" height="140" rx="13" fill="#1B1410"/>
+            <rect class="bar" style="animation-delay:.15s"  x="390" y="290" width="26" height="110" rx="13" fill="#FFF8EE"/>
+          </g>
+          <rect x="40" y="398" width="440" height="6" rx="3" fill="#1B1410"/>
+          <!-- heartbeat line -->
+          <path d="M20 120 H150 L172 80 L198 160 L226 40 L250 120 H500" fill="none" stroke="#1B1410" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="band" aria-hidden="true"></div>
+
+  <!-- WHY -->
+  <section id="why">
+    <div class="wrap story">
+      <div>
+        <span class="eyebrow">Why we exist</span>
+        <h2>Millions watch them dance. Few see the work behind it.</h2>
+        <p style="color:var(--muted)">Many African dance schools have huge audiences online, run by small teams. The time goes to teaching and caring for students — and the opportunities that come with all that attention often slip by.</p>
+      </div>
+      <ul>
+        <li><strong>Attention doesn't turn into income</strong><span>Views and followers rarely lead to donations or sponsorships.</span></li>
+        <li><strong>Too little time</strong><span>Admin and social media compete with teaching.</span></li>
+        <li><strong>Messages go unanswered</strong><span>Fans, brands and organisers reach out — replies are slow or never come.</span></li>
+        <li><strong>Hard to find</strong><span>Schools without a viral video stay invisible to supporters.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHAT -->
+  <section id="what" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>Smart helpers for busy dance schools</h2>
+        <p>We build simple AI helpers that take care of the routine work, so staff can spend their time on the dancers. A person at the school always stays in charge.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="icon" style="background:#FDE3D8">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8572A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/></svg>
+          </div>
+          <h3>More visibility</h3>
+          <p>Help planning and writing posts, so schools show up regularly and reach new supporters.</p>
+        </div>
+        <div class="card">
+          <div class="icon" style="background:#D6EDE4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1F7A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg>
+          </div>
+          <h3>Less admin</h3>
+          <p>Messages from fans, donors and partners sorted and answered faster — nothing important missed.</p>
+        </div>
+        <div class="card">
+          <div class="icon" style="background:#FCEFD3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C98A12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          </div>
+          <h3>More income</h3>
+          <p>Easy ways for fans to give, and help finding sponsors and partners beyond existing followers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>Start small, learn fast, then grow</h2>
+        <p>We begin with one school in Uganda, build what they need most, and only grow once it truly works.</p>
+      </div>
+      <div class="steps">
+        <div class="step now">
+          <span class="tag">Now</span>
+          <h3>Prepare</h3>
+          <p>Listen to our first school, agree on what matters most, and put a child-safety policy in place.</p>
+        </div>
+        <div class="step">
+          <h3>Pilot</h3>
+          <p>Build one or two helpers and test them for three months, measuring time saved and income earned.</p>
+        </div>
+        <div class="step">
+          <h3>Grow</h3>
+          <p>Improve what works, add more helpers, and welcome more schools across Africa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="safety">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F2B33D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div>
+          <h2>Children come first</h2>
+          <p>Most dancers are children and young people. Our helpers never post photos or details of students on their own — a person at the school approves everything, and every partner school has a safeguarding policy before we start.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section id="involved" class="alt involve">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Get involved</span>
+        <h2>Help keep the rhythm going</h2>
+        <p>Whether you run a dance school, want to support one, or can lend your skills — we'd love to hear from you.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Donate</h3>
+          <p>Fund helpers and training for dance schools.</p>
+          <a href="#contact">Coming soon →</a>
+        </div>
+        <div class="card">
+          <h3>Partner with us</h3>
+          <p>Brands, foundations and tech partners: let's work together.</p>
+          <a href="#contact">Get in touch →</a>
+        </div>
+        <div class="card">
+          <h3>Join as a school</h3>
+          <p>Run a dance school in Africa? Tell us about it.</p>
+          <a href="#contact">Get in touch →</a>
+        </div>
+      </div>
+      <p id="contact" style="margin-top:32px;color:var(--muted)">Contact details coming soon.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.svg" alt="Pulse Africa">
+    <span>© 2026 Pulse Africa Foundation · Non-profit</span>
+  </div>
+</footer>
+
+</body>
+</html>
