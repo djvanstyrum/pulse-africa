@@ -2,6 +2,19 @@
 
 Decisions, progress, learnings and key takeaways for Pulse Africa. Newest at the top.
 
+## 2026-11-06 — Website is live
+
+### Progress
+- The website is online for everyone at **https://djvanstyrum.github.io/pulse-africa/** (GitHub Pages).
+- Code is on GitHub in a **public** repository: https://github.com/djvanstyrum/pulse-africa (public is needed for free GitHub Pages). Anyone can see all files, including CLAUDE.md and Memory.md, so never put secrets or sensitive details in them.
+- Commits use DJ's private GitHub "noreply" email, so the real email address isn't stored in the code history.
+
+### How it works from now on
+- Every change that is sent to GitHub ("push") appears on the live site automatically, usually within 1–2 minutes. Just ask: "save this to GitHub".
+
+### Learnings
+- Claude's safety settings block creating something public (like a public GitHub repository) unless DJ clearly approves it in the chat first.
+
 ## 2026-11-06 — First website and logo
 
 ### Progress
@@ -24,7 +37,7 @@ Decisions, progress, learnings and key takeaways for Pulse Africa. Newest at the
 - Add real contact details (email) and a donate link.
 - Add real photos or videos (only with consent, following the child-safety rules).
 - Decide whether to name Smash Talent on the site.
-- Put it online (e.g. GitHub Pages, like DJ's personal website).
+- ~~Put it online~~ (done, see "Website is live").
 
 ## 2026-11-06 — First PRD drafted
 
